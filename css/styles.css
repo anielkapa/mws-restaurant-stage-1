@@ -341,45 +341,6 @@ nav h1 a {
   height: 25px;
 }
 
-@media only screen and (max-width: 600px) {
-  #restaurant-container{
-    margin:0;
-    justify-content: space-around;
-  }
-  #restaurant-name, #restaurant-cuisine, #restaurant-address, #restaurant-hours{
-    width:100%;
-  }
-  #restaurant-img{
-    width: 80vw;
-    height: calc(80vw / (800/600));
-    margin-bottom: 20px;
-  }
-  #restaurant-name {
-    margin: 20px 0 20px 10vw;
-  }
-  #restaurant-address{
-    margin-left: 10vw;
-  }
-  #restaurant-hours{
-    margin-left: 20vw;
-  }
-}
-
-@media only screen and (min-width: 1049px) {
-  #restaurant-img{
-    order: 0;
-    width:50%;
-    height: calc(50% / (800/600));
-  }
-  #restaurant-name, #restaurant-cuisine, #restaurant-address{
-    width:100%;
-  }
-   #restaurant-hours{
-    width:50%;
-    order:1;
-  }
-}
-
 /** REVIEWS section **/
 
 #reviews-container {
@@ -417,7 +378,7 @@ nav h1 a {
   letter-spacing: 2px;
   margin: 20px;
   padding: 3px;
-  width: 25%;
+  width:125px;
   text-align: center;
   text-transform: uppercase;
 }
@@ -456,4 +417,44 @@ nav h1 a {
 #restaurant-hours td {
   color: #666;
   font-size: 14px;
+}
+
+
+@media screen and (min-width: 601px) and (max-width: 1048px){
+  #restaurant-container{
+    margin:0;
+    justify-content: space-around;
+  }
+  #restaurant-name, #restaurant-cuisine, #restaurant-address, #restaurant-hours{
+    width:100%;
+  }
+  #restaurant-img{
+    width: 80vw;
+    height: calc(80vw / (800/600));
+    margin-bottom: 20px;
+  }
+  #restaurant-name {
+    margin: 20px 0 20px 10vw;
+  }
+  #restaurant-address{
+    margin-left: 10vw;
+  }
+  #restaurant-hours{
+    margin-left: 20vw;
+  }
+}
+
+@media only screen and (min-width: 1049px) {
+  #restaurant-img{
+    order: 0;
+    width:50%;
+    height: calc(50% / (800/600));
+  }
+  #restaurant-name, #restaurant-cuisine, #restaurant-address{
+    width:100%;
+  }
+   #restaurant-hours{
+    width:50%;
+    order:1;
+  }
 }
