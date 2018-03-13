@@ -216,6 +216,11 @@ nav h1 a {
   min-width: 270px;
 }
 
+figure {
+  margin: 0;
+  width: 100%;
+}
+
 #restaurants-list li h1 {
   color: #f18200;
   font-family: Arial, sans-serif;
@@ -414,6 +419,9 @@ nav h1 a {
   font-size: 14px;
   text-align: end;
 }
+#restaurant-hours th {
+
+}
 #restaurant-hours td {
   color: #666;
   font-size: 14px;
@@ -437,10 +445,19 @@ nav h1 a {
     margin: 20px 0 20px 10vw;
   }
   #restaurant-address{
-    margin-left: 10vw;
+    text-align: center;
   }
-  #restaurant-hours{
-    margin-left: 20vw;
+  #restaurant-hours {
+    padding: 10px;
+  }
+  #restaurant-hours tr {
+    width: 100%;
+  }
+  #restaurant-hours td {
+    width:155px
+  }
+  #restaurant-hours td:last-of-type {
+
   }
 }
 
