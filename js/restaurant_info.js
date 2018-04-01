@@ -19,14 +19,7 @@ window.initMap = () => {
     }
   });
 }
-/**
- *SET LANG ATTR TO HTML.
- */
-setLangAttr = () =>{
-  let htmlElement = document.querySelector("html");
-  htmlElement.setAttribute('lang', "en");
-}
-setLangAttr();
+
 /**
  * Get current restaurant from page URL.
  */
@@ -152,7 +145,10 @@ createReviewHTML = (review) => {
 fillBreadcrumb = (restaurant=self.restaurant) => {
   const breadcrumb = document.getElementById('breadcrumb');
   const li = document.createElement('li');
-  li.innerHTML = restaurant.name;
+  const a = document.createElement('a');
+  a.setAttribute('aria-current', 'page');
+  a.innerHTML = restaurant.name;
+  li.appendChild(a);
   breadcrumb.appendChild(li);
 }
 
