@@ -19,7 +19,14 @@ window.initMap = () => {
     }
   });
 }
-
+/**
+ *SET LANG ATTR TO HTML.
+ */
+setLangAttr = () =>{
+  let htmlElement = document.querySelector("html");
+  htmlElement.setAttribute('lang', "en");
+}
+setLangAttr();
 /**
  * Get current restaurant from page URL.
  */
@@ -56,8 +63,9 @@ fillRestaurantHTML = (restaurant = self.restaurant) => {
   address.innerHTML = restaurant.address;
 
   const image = document.getElementById('restaurant-img');
-  image.className = 'restaurant-img'
+  image.className = 'restaurant-img';
   image.src = DBHelper.imageUrlForRestaurant(restaurant);
+  image.setAttribute("alt", `${restaurant.name}`);
 
   const cuisine = document.getElementById('restaurant-cuisine');
   cuisine.innerHTML = restaurant.cuisine_type;
@@ -128,7 +136,7 @@ createReviewHTML = (review) => {
   li.appendChild(headerReview);
 
   const rating = document.createElement('p');
-  rating.innerHTML = `Rating: ${review.rating}`; 
+  rating.innerHTML = `Rating: ${review.rating}`;
   li.appendChild(rating);
 
   const comments = document.createElement('p');
@@ -163,3 +171,14 @@ getParameterByName = (name, url) => {
     return '';
   return decodeURIComponent(results[2].replace(/\+/g, ' '));
 }
+
+/**create skip link to reviews section**/
+createSkipLink = () =>{
+  const header = document.querySelector("header");
+  const linkSkip = document.createElement('a');
+  linkSkip.innerHTML= "Skip to reviews";
+  linkSkip.className = "skip-link";
+  linkSkip.setAttribute("href", "#reviews-container");
+  header.appendChild(linkSkip);
+}
+createSkipLink();

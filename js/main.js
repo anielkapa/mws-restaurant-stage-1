@@ -10,6 +10,7 @@ var markers = []
 document.addEventListener('DOMContentLoaded', (event) => {
   fetchNeighborhoods();
   fetchCuisines();
+
 });
 
 /**
@@ -31,10 +32,13 @@ fetchNeighborhoods = () => {
  */
 fillNeighborhoodsHTML = (neighborhoods = self.neighborhoods) => {
   const select = document.getElementById('neighborhoods-select');
+//  select.setAttribute("aria-labelledby","exp_elem");
+  select.setAttribute('role', 'listbox');
   neighborhoods.forEach(neighborhood => {
     const option = document.createElement('option');
     option.innerHTML = neighborhood;
     option.value = neighborhood;
+    option.setAttribute('role', 'option');
     select.append(option);
   });
 }
@@ -78,9 +82,16 @@ window.initMap = () => {
   self.map = new google.maps.Map(document.getElementById('map'), {
     zoom: 12,
     center: loc,
-    scrollwheel: false
+    scrollwheel: false,
+    disableDefaultUI: true,
+    gestureHandling: 'cooperative'
   });
   updateRestaurants();
+}
+
+setIFrameTitle = () =>{
+  let iFrame = document.querySelector("iframe");
+  iFrame.setAttribute('title', 'google maps');
 }
 
 /**
@@ -104,6 +115,7 @@ updateRestaurants = () => {
       fillRestaurantsHTML();
     }
   })
+
 }
 
 /**
@@ -145,7 +157,7 @@ createRestaurantHTML = (restaurant) => {
   figure.append(picture);
   figure.append(figureCaption);
 
-  const name = document.createElement('h1');
+  const name = document.createElement('h3');
   name.innerHTML = restaurant.name;
   figureCaption.append(name);
 
@@ -153,8 +165,9 @@ createRestaurantHTML = (restaurant) => {
   const image = document.createElement('img');
   image.className = 'restaurant-img';
   image.alt = `${restaurant.name}`
-  image.src = DBHelper.imageUrlForRestaurant(restaurant);
-  sourceMedia.media= '(min-width:)';
+  image.src = DBHelper.imageSMALLUrlForRestaurant(restaurant);
+  sourceMedia.media= '(min-width: 601px)';
+  sourceMedia.setAttribute('srcset', `${DBHelper.imageUrlForRestaurant(restaurant)}`);
   picture.append(sourceMedia);
   picture.append(image);
 
@@ -189,4 +202,5 @@ addMarkersToMap = (restaurants = self.restaurants) => {
     });
     self.markers.push(marker);
   });
+  
 }
