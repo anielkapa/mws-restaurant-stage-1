@@ -17,7 +17,7 @@
   </header>
   <main id="maincontent">
     <section id="map-container">
-      <div id="map" ></div>
+      <div id="map" role="application" aria-label="Map with restaurants"></div>
     </section>
     <section>
       <article>
@@ -42,7 +42,7 @@
       </article>
     </section>
   </main>
-  
+
   <script>
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('/sw.js').then(function(reg) {

@@ -9,6 +9,26 @@ var filesToCache = [
   '/css/styles.css',
   '/index.html',
   '/restaurant.html',
+  '/img/1.jpg',
+  '/img/2.jpg',
+  '/img/3.jpg',
+  '/img/4.jpg',
+  '/img/5.jpg',
+  '/img/6.jpg',
+  '/img/7.jpg',
+  '/img/8.jpg',
+  '/img/9.jpg',
+  '/img/10.jpg',
+  '/images/1-400_small.jpg',
+  '/images/2-400_small.jpg',
+  '/images/3-400_small.jpg',
+  '/images/4-400_small.jpg',
+  '/images/5-400_small.jpg',
+  '/images/6-400_small.jpg',
+  '/images/7-400_small.jpg',
+  '/images/8-400_small.jpg',
+  '/images/9-400_small.jpg',
+  '/images/10-400_small.jpg'
 ];
 
 self.addEventListener('install', function(e) {
